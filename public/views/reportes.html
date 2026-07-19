@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atlantic City - Reportes</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/reportes.css" />
+</head>
+
+<body>
+    <nav-sidebar></nav-sidebar>
+
+    <main class="contenedor-panel">
+        <nav-header>
+            <span slot="ruta">Reportes</span>
+        </nav-header>
+        <div class="contenedor-principal">
+            <section class="titulo-panel">
+                <h1>Reportes</h1>
+
+                <nav class="encabezado-filtros">
+                    <div>
+                        <button class="btn btn-fechas">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="tamano-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                            </svg>
+                            <span>01/01/2026 - 31/12/2026</span>
+                        </button>
+
+                        <form class="formulario-filtro-fechas oculto">
+                            <div class="grupo-formulario">
+                                <label for="desde">Desde</label>
+                                <input id="desde" type="date" value="2026-01-01" />
+                            </div>
+
+                            <div class="grupo-formulario">
+                                <label for="hasta">Hasta</label>
+                                <input id="hasta" type="date" value="2026-05-31" />
+                            </div>
+                            <button class="btn btn-primario btn-aplicar">Aplicar</button>
+                        </form>
+                    </div>
+
+                    <select class=" btn filtro--nivel">
+                        <option value="">Todos los clientes</option>
+                        <option value="vip">VIP</option>
+                        <option value="frecuente">Frecuente</option>
+                        <option value="regular">Regular</option>
+                    </select>
+
+                    <button type="button" class="btn btn-limpiar">Limpiar</button>
+                    <button type="button" class="btn btn-generar">Generar reporte</button>
+                </nav>
+            </section>
+
+            <section class="graficos">
+                <div class="tarjeta-grafico">
+                    <h2>Visitas mensuales</h2>
+                    <div></div>
+                </div>
+                <div class="tarjeta-grafico">
+                    <h2>Ingresos mensuales ($)</h2>
+                    <div></div>
+                </div>
+            </section>
+
+            <section class="contenedor-tablas">
+                <div class="tabla-all--titulo">
+                    <h2>Historial de Promociones</h2>
+
+                    <select class="filtro-estado">
+                        <option value="">Todos las promociones</option>
+                        <option value="usados">Usados</option>
+                        <option value="no-usados">No Usados</option>
+                    </select>
+                </div>
+
+                <div class="tabla--responsiva">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Nombre de promoción</th>
+                                <th>Fecha de envio</th>
+                                <th>Fecha de uso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="flex-avatar">
+                                        <div class="avatar JP">JP</div>
+                                        <p>Juan Pérez</p>
+                                    </div>
+                                </td>
+                                <td class="texto-resaltado">
+                                    Torneo de Poker Invitación
+                                </td>
+                                <td>10/05/2026</td>
+                                <td>15/05/2026</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="flex-avatar">
+                                        <div class="avatar JP">JP</div>
+                                        <p>Juan Pérez</p>
+                                    </div>
+                                </td>
+                                <td class="texto-resaltado">
+                                    Torneo de Poker Invitación
+                                </td>
+                                <td>10/05/2026</td>
+                                <td class="estado-no-usado">No usada</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+                <paginacion-tablas>
+                    <span slot="info">Mostrando 3 de 3 registros</span>
+                </paginacion-tablas>
+            </section>
+
+            <section class="contenedor-tablas">
+                <div class="tabla-all--titulo">
+                    <h2>Actividad de Clientes</h2>
+
+                    <select class="filtro-estado">
+                        <option value="">Todos los Clientes</option>
+                        <option value="vip">VIP</option>
+                        <option value="recuente">Frecuente</option>
+                        <option value="regular">Regular</option>
+                    </select>
+                </div>
+
+                <div class="tabla--responsiva">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>DNI</th>
+                                <th>Nivel</th>
+                                <th>Última visita</th>
+                                <th>Monto consumido</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="flex-avatar">
+                                        <div class="avatar JP">JP</div>
+                                        <p>Juan Pérez</p>
+                                    </div>
+                                </td>
+                                <td>28456123</td>
+                                <td><span class="badge-tablas vip">VIP</span></td>
+                                <td>10/05/2026</td>
+                                <td >S/ 12,450.00</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <div class="flex-avatar">
+                                        <div class="avatar JP">JP</div>
+                                        <p>Juan Pérez</p>
+                                    </div>
+                                </td>
+                                <td>28456123</td>
+                                <td><span class="badge-tablas frecuente">Frecuente</span></td>
+                                <td>10/05/2026</td>
+                                <td >S/ 12,450.00</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="flex-avatar">
+                                        <div class="avatar JP">JP</div>
+                                        <p>Juan Pérez</p>
+                                    </div>
+                                </td>
+                                <td>28456123</td>
+                                <td><span class="badge-tablas regular">Regular</span></td>
+                                <td>10/05/2026</td>
+                                <td >S/ 12,450.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <paginacion-tablas>
+                    <span slot="info">Mostrando 3 de 3 registros</span>
+                </paginacion-tablas>
+            </section>
+        </div>
+
+        <footer-general></footer-general>
+    </main>
+
+    <script type="module" src="../components/index.js"></script>
+</body>
+
+</html>

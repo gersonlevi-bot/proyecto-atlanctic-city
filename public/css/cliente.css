@@ -1,0 +1,182 @@
+/* boton agregar cliente */
+.btn-agregar-cliente {
+    color: var(--color-blanco);
+    font-size: 0.9rem;
+    font-weight: 600;
+    gap: 8px;
+    transition: var(--transicion);
+}
+
+.btn-agregar-cliente:hover {
+    background-color: var(--color-primario-hover);
+}
+
+.btn-agregar-cliente svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Barra de filtros dentro de la tabla */
+.tabla-filtros--nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; 
+    margin: 1rem 0;
+}
+
+/* input search */
+.tabla-filtros--search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.tabla-filtros--search svg {
+    position: absolute;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    color: var(--color-gris-500);
+    pointer-events: none;
+}
+
+.imput-buscar {
+    width: 280px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+    font-size: 0.9rem;
+    color: var(--color-gris-800);
+    outline: none;
+    transition: var(--transicion);
+}
+
+.imput-buscar:focus { 
+    width: 300px; 
+    border-color: var(--color-gris-200);
+}
+
+.imput-buscar::placeholder {
+    color: var(--color-gris-500);
+}
+
+
+.tabla--link {
+    color: var(--status-proxima-text);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Botones de acción de la tabla */
+.btn-accion {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    margin-left: 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+.btn-accion svg { 
+    width: 16px; 
+    height: 16px; 
+}
+.btn-editar { color: var(--color-gris-800);  }
+.btn-editar:hover { background-color: var(--color-gris-200); }
+.btn-eliminar { color: var(--color-error); }
+.btn-eliminar:hover { background-color: #fee2e2; }
+
+/* Modal add cliente */
+.contenedor-panel-add-cliente {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 100vh;
+    background-color: var(--color-blanco);
+    display: flex;
+    flex-direction: column;
+}
+
+.encabezado-panel-lateral {
+    padding: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.contenedor-icono-mas {
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-icono-mas svg {
+    width: 25px;
+    height: 25px;
+}
+
+.titulo-panel-agregar-cliente {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.encabezado-panel-lateral p { 
+    font-size: 0.85rem; 
+    color: var(--color-gris-800); 
+    margin: 0; 
+}
+
+.formulario-panel-lateral {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1;
+}
+
+.grupo-nivel { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 8px; 
+}
+
+.btn-nivel {
+    height: 38px;
+    border: 1px solid var(--border-color);
+    background: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--color-gris-800);
+}
+
+.btn-nivel.activo {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border-color: var(--color-primario);
+}
+
+.pie-formulario {
+    margin-top: auto;
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.btn-cancelar:hover {
+    color: var(--color-blanco);
+    background: var(--color-primario);
+}

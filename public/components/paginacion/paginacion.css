@@ -1,0 +1,66 @@
+﻿/* Componente: controles de paginación */
+:host {
+    display: block;
+    width: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    box-sizing: border-box;
+}
+
+.contenedor-paginacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e6e9ee;
+}
+
+.info-paginacion {
+    color: #1a202c;
+    font-size: 0.875rem;
+}
+
+.controles-paginacion {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; 
+}
+
+.btn-pagina {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+}
+
+button.btn-pagina {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0; 
+    color: #718096;
+    padding: 0;
+}
+
+button.btn-pagina:hover:not(:disabled) {
+    border-color: #1a202c;
+    color: #1a202c;
+}
+
+button.btn-pagina:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-pagina.activo {
+    background-color: #002b49; 
+    color: #fff; 
+    border: none;
+    cursor: default;
+}
+

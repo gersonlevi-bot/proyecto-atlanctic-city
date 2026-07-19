@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Atlantic City - Inicio</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/inicio.css">
+</head>
+
+<body>
+    <nav-sidebar></nav-sidebar>
+
+    <main class="contenedor-panel">
+        <nav-header>
+            <span slot="ruta">Inicio</span>
+        </nav-header>
+        <div class="contenedor-principal">
+            <section class="pagina-inicio-titulos">
+                <h1>Bienvenido, <span>Usuario</span></h1>
+                <p>Aquí tienes un resumen del estado actual de tu casino hoy.</p>
+            </section>
+
+            <section class="tarjetas-info-inicio">
+                <info-card color="azul">
+                    <svg slot="icono" xmlns="http://w3.org" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                    <span slot="titulo">Clientes</span>
+                    <span slot="valor">1,245</span>
+                </info-card>
+
+                <info-card color="verde">
+                    <svg slot="icono" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                    </svg>
+                    <span slot="titulo">Promociones</span>
+                    <span slot="valor">8</span>
+                </info-card>
+
+                <info-card color="naranja">
+                    <svg slot="icono" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                    </svg>
+                    <span slot="titulo">Visitas hoy</span>
+                    <span slot="valor">56</span>
+                </info-card>
+
+                <info-card color="rosa">
+                    <svg slot="icono" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                    </svg>
+                    <span slot="titulo">VIP</span>
+                    <span slot="valor">128</span>
+                </info-card>
+            </section>
+
+            <section class="contenedor-tablas-aside">
+                <div class="panel-izquierdo contenedor-tablas">
+                    <div class="tabla-all--titulo">
+                        <h2>Clientes recientes</h2>
+                        <p><a href="./cliente.html">Ver todos</a></p>
+                    </div>
+
+                    <div class="tabla--responsiva">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Nivel</th>
+                                    <th>Última visita</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="flex-avatar">
+                                            <div class="avatar JP">JP</div>
+                                            <p>Juan Pérez</p>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge-tablas vip">VIP</span></td>
+                                    <td>10/05/2026</td>
+                                </tr>
+
+                                <tr>                                                                
+                                    <td>
+                                        <div class="flex-avatar">
+                                            <div class="avatar JP">JP</div>
+                                            <p>Juan Pérez</p>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge-tablas frecuente">Frecuente</span></td>
+                                    <td>10/05/2026</td>                 
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <div class="flex-avatar">
+                                            <div class="avatar JP">JP</div>
+                                            <p>Juan Pérez</p>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge-tablas regular">Regular</span></td>
+                                    <td>10/05/2026</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <aside class="panel-derecha">
+                    <article class="aside--promociones">
+                        <h2>Promociones activas</h2>
+                        <div class="item-promocion">
+                            <div class="item-icono azul"></div>
+                            <p>Sorteo mensual <span>Participa con tus visitas</span></p>
+                            <div class="enlace">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="item-promocion">
+                            <div class="item-icono amarillo"></div>
+                            <p>Bono de bienvenida <span>Para nuevos clientes</span></p>
+                            <div class="enlace">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="item-promocion">
+                            <div class="item-icono verde"></div>
+                            <p>Descuento VIP 20% <span>Hasta el 31/05</span></p>
+                            <div class="enlace">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="aside--soporte">
+                        <h3>¿Necesitas ayuda?</h3>
+                        <p>Contacta con el soporte técnico de <span>ATLANTIC CITY 24/7</span></p>
+                        <button type="button" class="btn-soporte">Contactar soporte</button>
+                    </article>
+                </aside>
+            </section>
+        </div>
+
+        <footer-general></footer-general>
+    </main>
+
+    <script type="module" src="../components/index.js"></script>
+
+</body>
+
+</html>

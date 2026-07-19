@@ -1,0 +1,192 @@
+:host {
+    --borde-gris: #e2e8f0;
+    --texto-oscuro: #1a202c;
+    --texto-gris: #718096;
+    --azul-corporativo: #002244;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+/* La tarjeta del Modal */
+.tarjeta-modal {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 540px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Encabezado del modal */
+.encabezado-modal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.caja-avatar-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background-color: #f7fafc;
+    border-radius: 50%;
+}
+
+.caja-avatar-modal ::slotted(svg) {
+    width: 20px;
+    height: 20px;
+    color: #4a5568;
+}
+
+.titulos-modal h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--texto-oscuro);
+}
+
+.titulos-modal span {
+    font-size: 0.875rem;
+    color: var(--texto-gris);
+}
+
+/* Botón cerrar "X" */
+.btn-cerrar {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: var(--texto-gris);
+    cursor: pointer;
+}
+
+.btn-cerrar:hover {
+    color: var(--texto-oscuro);
+}
+
+/* Formulario y Cuadrícula */
+.formulario-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.fila-doble {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.grupo-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.grupo-campo label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--texto-oscuro);
+}
+
+/* Caja de inputs con icono integrado */
+.caja-input {
+    position: relative;
+    width: 100%;
+}
+
+.caja-input input, .caja-input select {
+    width: 100%;
+    padding: 0.65rem 1rem 0.65rem 2.5rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--borde-gris);
+    border-radius: 10px;
+    outline: none;
+    box-sizing: border-box;
+    color: var(--texto-oscuro);
+    background-color: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.caja-input select {
+    appearance: none; /* Quita la flecha nativa para personalizarla o usar la del sistema */
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://w3.org' fill='none' viewBox='0 0 24 24' stroke='%234a5568'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m19 9-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+.caja-input input:focus, .caja-input select:focus {
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+.caja-input ::slotted(svg) {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: var(--texto-gris);
+    pointer-events: none;
+}
+
+/* Botones de acción inferiores */
+.acciones-modal {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.btn-accion {
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.btn-cancelar {
+    background-color: #ffffff;
+    border: 1px solid var(--borde-gris);
+    color: var(--texto-oscuro);
+}
+
+.btn-cancelar:hover { background-color: #f7fafc; }
+
+.btn-guardar {
+    background-color: var(--azul-corporativo);
+    border: none;
+    color: #ffffff;
+}
+
+.btn-guardar:hover { opacity: 0.9; }
+
+/* Clase utilitaria para ocultar el modal */
+:host(.oculto) { display: none !important; }

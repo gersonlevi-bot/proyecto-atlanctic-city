@@ -1,0 +1,30 @@
+﻿/* Componente: pie de página general */
+:host {
+    display: block;
+    width: 100%;
+    --border-color: #e2e8f0;
+    --color-gris-500: #718096;
+    --color-blanco: #ffffff;
+}
+
+.footer-general {
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--color-gris-500);
+    background-color: var(--color-blanco);
+}
+
+.footer-general a { 
+    color: #00233c; 
+    text-decoration: none; 
+    margin-left: 4px; 
+}
+
+.footer-general a:hover {
+    color: #003559; 
+    text-decoration: underline;
+}
+
+
+

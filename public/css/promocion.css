@@ -1,0 +1,16 @@
+.tarjetas-promociones {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 1.25rem;
+}
+
+.encabezado-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-primario svg {
+    width: 16px;
+    height: 16px;
+}

@@ -1,0 +1,270 @@
+﻿/* Panel izquierdo */
+.panel-izquierdo {
+    width: 40%;
+    background: var(--color-primario);
+    padding: 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--color-blanco);
+}
+
+/* brand logo*/
+.marca-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.marca-logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.marca-logo  h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 0;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.marca-logo  h1 span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-gris-100);
+}
+
+/* Panel izquierdo--central */
+.panel-izquierdo--central { max-width: 80%; } 
+
+.panel--icon {
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+.panel-izquierdo--central h2{
+    font-size: 2.3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.panel-izquierdo--central p {
+    color: var(--color-gris-100);
+    margin-bottom: 30px;
+}
+
+.panel--features { padding: 0; }
+
+.panel--features li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.panel--features li svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-secundario);
+}
+
+/* Panel izquierdo--footer */
+.panel-izquierdo--footer {
+    font-size: 0.75rem;
+    color: var(--color-gris-100);
+    text-align: left;
+}
+
+/* Panel Derecho */
+.panel-derecho {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-login,
+.contenedor-register { width: 480px; }
+
+/* Formulario login y register */
+.header--login,
+.header--register {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 2rem;
+}
+
+.header--login h3,
+.header--register h3 {
+    font-size: 2rem;
+    color: var(--color-gris-800);
+}
+
+.header--login p,
+.header--register p {
+    font-size: 1rem;
+    color: var(--color-gris-500);
+}
+
+.form--login,
+.form--register {
+    width: 100%;
+    margin: 0 0 2.5rem;
+    padding: 1rem 0.5rem;
+    background: var(--color-blanco);
+    border-radius: 16px;
+    box-shadow: var(--sombras);
+}
+
+.form-group--password {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.form-group--password p a {
+    color: var(--color-azul);
+    font-weight: 500;
+}
+
+.input-box .password--eye {
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn-iniciar,
+.btn-registrar,
+.btn-enviar-codigo {
+    display: block;
+    margin: 1rem auto;
+    width: 90%;
+    height: 40px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.login--footer,
+.register--footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    color: var(--color-gris-100);
+}
+
+.footer--text {
+    font-size: 1rem;
+    color: var(--color-gris-800);
+}
+
+.footer--text a {
+    color: var(--color-primario);
+    font-weight: 500;
+}
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-gris-800);
+    font-size: 0.8rem;
+}
+
+.footer-links a {
+    color: var(--color-gris-800);
+    transition: all 0.1s ease-in-out;
+}
+
+.footer-links * + * {
+    display: flex;
+    align-items: center;
+}
+
+.footer-links * + *::before {
+    content: "";               
+    display: inline-block;     
+    width: 4px;               
+    height: 4px;              
+    background-color: var(--color-gris-100);    
+    border-radius: 50%;        
+    margin-right: 0.5rem;        
+}
+
+.footer-links a:hover {
+    color: var(--color-primario);
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+/* Modal recuperar contraseÃ±a */
+.contenedor-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);        
+    background-color: var(--color-blanco);
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal--cerrar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    color: var(--color-gris-500);
+    cursor: pointer;
+    transition: var(--transicion);
+} 
+
+.modal--cerrar:hover { color: var(--color-gris-800); }
+
+.modal-icono-llave {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--color-gris-200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.modal-icono-llave svg {
+    width: 25px;
+    height: 25px;
+    color: var(--color-azul);
+}
+
+.contenedor-modal h3 {
+    color: var(--color-gris-800);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.contenedor-modal p {
+    text-align: center;
+    color: var(--color-gris-800);
+    font-size: 0.9rem;
+}
+.btn-enviar-codigo { width: 85%; }
+
+.form-modal-password { width: 100%; }

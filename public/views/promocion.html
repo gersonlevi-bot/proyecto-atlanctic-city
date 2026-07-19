@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlantic city - Promociones</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/promocion.css">
+</head>
+<body>
+    <nav-sidebar></nav-sidebar>
+    <main class="contenedor-panel">
+        <nav-header>
+            <span slot="ruta">Promociones</span>
+        </nav-header>
+
+        <div class="contenedor-principal">
+            <section class="titulo-panel">
+                <div>
+                    <h1>Prmoociones</h1>
+                    <p>Administra las promociones activas y futuras del casino.</p>
+                </div>
+                <nav class="encabezado-btn">
+                    <button type="button" class="btn btn-secundario ">Asignar Promoción</button>
+                    <button type="button" class="btn btn-primario">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        <span>Nueva Promoción</span>
+                    </button>
+                </nav>
+            </section>
+
+            <section class="tarjetas-promociones">
+                <card-promocion badge-estado="activa">
+                    <span slot="titulo">Bono de bienvenida</span>
+                    <span slot="descripcion">Obtén el 100% de tu primer depósito hasta $5000.</span>
+                    <span slot="fecha">31/12/2026</span>
+                </card-promocion>
+
+                <card-promocion badge-estado="expirada">
+                    <span slot="titulo">Bono de bienvenida</span>
+                    <span slot="descripcion">Obtén el 100% de tu primer depósito hasta $5000.</span>
+                    <span slot="fecha">31/12/2026</span>
+                </card-promocion>
+
+                <card-promocion badge-estado="activa">
+                    <span slot="titulo">Bono de bienvenida</span>
+                    <span slot="descripcion">Obtén el 100% de tu primer depósito hasta $5000.</span>
+                    <span slot="fecha">31/12/2026</span>
+                </card-promocion>
+
+                <card-promocion badge-estado="expirada">
+                    <span slot="titulo">Bono de bienvenida</span>
+                    <span slot="descripcion">Obtén el 100% de tu primer depósito hasta $5000.</span>
+                    <span slot="fecha">31/12/2026</span>
+                </card-promocion>
+                
+                <card-promocion badge-estado="activa">
+                    <span slot="titulo">Bono de bienvenida</span>
+                    <span slot="descripcion">Obtén el 100% de tu primer depósito hasta $5000.</span>
+                    <span slot="fecha">31/12/2026</span>
+                </card-promocion>
+                
+                <card-promocion badge-estado="activa">
+                    <span slot="titulo">Bono de bienvenida</span>
+                    <span slot="descripcion">Obtén el 100% de tu primer depósito hasta $5000.</span>
+                    <span slot="fecha">31/12/2026</span>
+                </card-promocion>
+            </section>
+        </div>
+
+        <footer-general></footer-general>
+    </main>
+    
+    <script type="module" src="../components/index.js"></script>
+</body>
+</html>

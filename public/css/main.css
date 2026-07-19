@@ -1,0 +1,345 @@
+﻿:root {
+    /* Variables globales */
+    --fuente-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --color-fondo: #f6f7f9;
+    --color-primario: #002b49;
+    --color-primario-hover: #003a61;
+    --color-secundario: #d4af37;
+    --color-blanco: #ffffff;
+    --color-gris-100: #e6e9ee;
+    --color-gris-200: #cbd5e1;
+    --color-gris-500: #718096;
+    --color-gris-800: #1a202c;
+    --color-error: #d64545;
+    --color-exito: #2e7d32;
+    --color-bg-frecuente: #bee5ff;
+    --color-frecuente: #0066a6;
+    --color-bg-regular: #e9ecef;
+    --color-regular: #4b5563;
+    --border-color: #e2e8f0;
+    --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    --transicion: all 0.20s ease-in-out;
+    --fondo-oscuro: rgba(0, 0, 0, 0.4);
+    --color-secundario-fondo: #fef3c7;
+    --color-gris-borde: var(--border-color);
+    --color-gris-claro: var(--color-gris-100);
+    --color-success: var(--color-exito);
+    --status-proxima-text: var(--color-primario);
+    --status-resuelto-bg: #f0fdf4;
+    --status-resuelto-text: #166534;
+    --status-pendiente-bg: #fef2f2;
+    --status-pendiente-text: #991b1b;
+    --status-pausada-bg: #f8fafc;
+    --status-pausada-text: #475569;
+}
+
+/* Reset a los componentes para el defecto FOUC  */
+nav-sidebar:not(:defined),
+nav-header:not(:defined),
+info-card:not(:defined),
+paginacion-tablas:not(:defined),
+footer-general:not(:defined) {
+    display: none;
+}
+
+/* Reset global del documento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html {
+    font-family: var(--fuente-base);
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-fondo);
+    color: var(--color-gris-800);
+    overflow-x: hidden;   
+}
+
+/* Utilidades compartidas */
+.oculto { display: none !important; }
+.texto-marcador { color: var(--color-gris-500); }
+
+.btn { 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 0.5rem; 
+    border-radius: 12px; 
+    padding: 10px 18px; 
+    cursor: pointer; 
+    transition: var(--transicion); 
+    text-decoration: none;
+    border: 1px solid transparent; 
+}
+
+.btn-primario { 
+    background: var(--color-primario); 
+    color: var(--color-blanco);
+    border-color: var(--color-primario);
+}
+
+.btn-primario:hover { background-color: var(--color-primario-hover); }
+
+.btn-secundario { 
+    background: var(--color-fondo); 
+    border-color: var(--color-primario); 
+    color: var(--color-gris-800);
+}
+
+.btn-secundario:hover { background-color: var(--color-gris-100); }
+
+/* Layout principal del dashboard */
+.contenedor-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    overflow-y: auto; 
+}
+
+.contenedor-principal {
+    flex: 1;
+    padding: 1.5rem;
+}
+
+/* Encabezados de página */
+.titulo-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.pagina-inicio-titulos,
+.pagina-atencion-titulos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.titulo-panel h1,
+.pagina-inicio-titulos h1,
+.pagina-atencion-titulos h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.titulo-panel p,
+.pagina-inicio-titulos p,
+.pagina-atencion-titulos p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.tarjetas-info-inicio,
+.tarjetas-info-clientes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.seccion-tablas { width: 100%; }
+
+.contenedor-tablas,
+.tarjeta-grafico,
+.tarjeta-incidencia,
+.aside--promociones,
+.aside--soporte {
+    background-color: var(--color-blanco);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--sombra-card);
+    padding: 1.5rem 2rem;
+}
+
+.tabla-filtro {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.filtro-estado {
+    padding: 0.7rem 1rem;
+    border:1px solid var(--border-color);
+    border-radius: 12px;
+    text-transform: uppercase;
+    outline: none;
+    font-size: 0.7rem;
+}
+
+/* Estilos para los encabezados de las tablas */
+.tabla-all--titulo h2,
+.aside--promociones h2,
+.titulo-panel-agregar-cliente h2,
+.tarjeta-grafico h2,
+.tarjeta-incidencia-titulo h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-gris-800);
+}
+
+.tabla-all--titulo,
+.titulo-panel-agregar-cliente {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+/* Estilos de las tablas para todos los dashboard */
+.tabla--responsiva {
+    overflow-x: auto;
+    align-items: start;
+}
+
+.avatar.JP {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    color: var(--color-blanco);
+    font-weight: 600;
+    background-color: #166534;
+}
+
+.flex-avatar {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.87rem;
+}
+
+table th {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--color-gris-100);
+    color: var(--color-gris-500);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+table td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--color-gris-800);
+}
+
+table tr:hover td { background-color: var(--color-fondo); }
+
+
+.badge-tablas {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.badge-tablas.vip { 
+    background-color: var(--color-secundario); 
+    color: var(--color-blanco); 
+}
+.badge-tablas.frecuente { 
+    background-color: var(--color-bg-frecuente); 
+    color: var(--color-frecuente); 
+}
+.badge-tablas.regular { 
+    background-color: var(--color-bg-regular); 
+    color: var(--color-regular); 
+}
+
+/* Estilos de los formularios en general */
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 2rem 0.5rem;
+}
+
+.grupo-formulario label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-gris-800);
+}
+
+.grupo-formulario label span { color: var(--color-error); }
+
+.input-box {
+    position: relative;
+    width: 100%;
+}
+
+.input-box input,
+.input-box select {
+    width: 100%;
+    height: 40px;
+    padding: 0.75rem 2.5rem;
+    border: 1px solid var(--color-gris-200);
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: var(--color-gris-800);
+    outline: none;
+    transition: var(--transicion);
+}
+
+.input-box input:focus,
+.input-box select:focus { border-color: var(--color-primario); }
+
+.input-box svg,
+.error svg { width: 16px; height: 16px; }
+
+.input-box > svg:first-of-type,
+.caja-input-password-registro > svg:first-of-type {
+    position: absolute;
+    left: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.doble-columna {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem 2rem 0.5rem;
+}
+
+.doble-columna .grupo-formulario { flex: 1; padding: 0; }
+
+.grupo-formulario .error {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--color-error);
+}
+
+.backgraund-modal {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--fondo-oscuro);
+    /* backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px); */
+    transition: var(--transicion);
+}

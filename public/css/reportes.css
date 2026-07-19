@@ -1,0 +1,78 @@
+.contenedor-tablas { margin-bottom: 2rem; }
+
+.encabezado-filtros {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.btn-fechas,
+.filtro--nivel,
+.btn-limpiar { 
+    padding: 0.8rem 1.2rem; 
+    background: var(--color-blanco); 
+    font-weight: 500;
+    border: 1px solid var(--color-gris-500);
+}
+
+.btn-fechas svg {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-generar {
+    padding: 0.8rem 1.2rem;
+    background-color: var(--color-secundario);
+    border: 1px solid var(--color-secundario);
+    color: var(--color-blanco);
+    font-weight: 600;
+}
+
+/* Panel flotante */
+.formulario-filtro-fechas {
+    position: absolute;
+    top: 120%; 
+    left: 0;
+    background-color: var(--color-blanco);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: var(--sombra-card);
+    z-index: 100;
+    width: 220px;
+}
+
+.grupo-formulario {
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.grupo-formulario input[type="date"] {
+    padding: 0.6rem;
+    border: 1px solid var(--color-gris-500);
+    border-radius: 6px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.btn-aplicar {
+    display: block;
+    width: 100%;
+}
+
+/* Sección de Gráficos */
+.graficos {
+    display: flex;
+    width: 100%;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.tarjeta-grafico {
+    width: 50%;
+    height: auto;
+}
+/* estilos tablas */
+.texto-resaltado { color: var(--color-secundario); }
+
+.estado-no-usado { color: var(--color-error); }

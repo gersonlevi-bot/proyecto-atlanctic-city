@@ -1,0 +1,84 @@
+﻿/* Componente: tarjeta de datos resumen */
+:host {
+    display: block; 
+    width: 100%;
+    max-width: 380px;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.tarjeta {
+    display: flex;
+    align-items: center;       
+    gap: 1.25rem;              
+    background-color: #ffffff; 
+    padding: 1.5rem 2rem;      
+    border-radius: 16px;       
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.icono-tarjeta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;               
+    height: 48px;
+    border-radius: 50%;        
+}
+
+.icono-tarjeta ::slotted(svg) {
+    width: 24px;             
+    height: 24px;
+}
+
+.datos-tarjeta {
+    display: flex;
+    flex-direction: column;    
+    gap: 0.15rem;              
+}
+
+.datos-tarjeta h3 {
+    margin: 0;
+    font-size: 0.75rem;        
+    text-transform: uppercase; 
+    letter-spacing: 0.05em;    
+    color: #718096;          
+    font-weight: 600;
+}
+
+.datos-tarjeta p {
+    margin: 0;
+    font-size: 1.75rem;        
+    font-weight: 700;          
+    color: #1a202c;            
+}
+
+/* Variaciones de color dinÃ¡micas para el fondo y el icono */
+
+.icono-tarjeta.azul ::slotted(svg),
+.icono-tarjeta.verde ::slotted(svg),
+.icono-tarjeta.rosa ::slotted(svg),
+.icono-tarjeta.naranja ::slotted(svg),
+.icono-tarjeta.gris ::slotted(svg) {
+    color: #002b49;            
+}
+
+.icono-tarjeta.azul {
+    background-color: #edf2f7; 
+}
+
+.icono-tarjeta.verde {
+    background-color: #f2fbf9; 
+}
+
+.icono-tarjeta.rosa {
+    background-color: #fdf5fa;
+}
+
+.icono-tarjeta.naranja {
+    background-color: #fff7f2; 
+}
+
+.icono-tarjeta.gris {
+    background-color: #f7fafc;
+}
