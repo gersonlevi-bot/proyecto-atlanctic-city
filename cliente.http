@@ -1,0 +1,54 @@
+### Variables Globales de Configuración
+@api = http://localhost:3000/clientes
+
+
+### 1. LISTAR TODOS LOS CLIENTES ACTIVOS
+GET {{api}}/
+Content-Type: application/json
+
+###
+
+### 2. OBTENER UN CLIENTE ESPECÍFICO POR ID
+# Reemplaza el '1' al final por un ID válido de tu base de datos
+GET {{api}}/1
+Content-Type: application/json
+
+###
+
+### 3. REGISTRAR UN NUEVO CLIENTE (POST)
+POST {{api}}/
+Content-Type: application/json
+
+{
+    "tipo_cliente_id": 1,
+    "nombre": "Carlos",
+    "apellido": "Mendoza",
+    "DNI": "74839201",
+    "correo": "carlos.mendoza@email.com",
+    "direccion": "Av. Larco 456, Miraflores",
+    "telefono": "987654321"
+}
+
+###
+
+### 4. ACTUALIZAR DATOS DE UN CLIENTE (PUT)
+# Reemplaza el '1' por el ID del cliente que deseas modificar
+PUT {{api}}/1
+Content-Type: application/json
+
+{
+    "tipo_cliente_id": 3, 
+    "nombre": "Carlos Alberto",
+    "apellido": "Mendoza Ruiz",
+    "DNI": "74839201",
+    "correo": "carlos.mendoza@email.com",
+    "direccion": "Av. Benavides 789, Surco",
+    "telefono": "999888777"
+}
+
+###
+
+### 5. DAR DE BAJA A UN CLIENTE / BORRADO LÓGICO (DELETE)
+# Reemplaza el '1' por el ID del cliente que vas a desactivar
+DELETE {{api}}/1
+Content-Type: application/json
