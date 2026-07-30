@@ -10,7 +10,7 @@ USE casino_atencion_db;
 -- Estructura de accesos del sistema
 CREATE TABLE Rol (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL UNIQUE -- Ej: 'Administrador', 'Supervisor', 'Empleado'
+    nombre VARCHAR(50) NOT NULL UNIQUE -- Ej: 'Administrador', 'Empleado'
 );
 
 -- Segmentación del negocio de casinos
@@ -61,6 +61,7 @@ CREATE TABLE Cliente (
     direccion VARCHAR(255),
     telefono VARCHAR(20),
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- AUDITORÍA: Fecha automática de alta del cliente
+    estado BOOLEAN DEFAULT TRUE,         --  Borrado lógico. Desactiva clientes sin romper registros históricos
     FOREIGN KEY (tipo_cliente_id) REFERENCES Tipo_Cliente(id)
 );
 

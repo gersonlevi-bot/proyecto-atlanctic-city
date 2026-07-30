@@ -1,85 +1,76 @@
-import { json } from "express";
 import { pool } from "../config/db.js";
 
-// Listar los clientes (Trae también el nombre de la categoría)
+/**
+ * Obtiene el listado completo de clientes activos junto al nombre de su categoría.
+ */
 export const getClientes = async (req, res) => {
     try {
-        const [rows] = await pool.query(`
+        // Consulta uniendo con la tabla Tipo_cliente
+        const sql = `
             SELECT c.*, tc.nombre AS tipo_cliente_nombre 
             FROM Cliente c
             INNER JOIN Tipo_Cliente tc ON c.tipo_cliente_id = tc.id
             WHERE c.estado = true
-        `);
+        `;
+
+        const [rows] = await pool.query(sql);
 
         res.json(rows);
     } catch (error) {
         console.error("Error en getClientes:", error);
-        res.status(500).json({
-            error: "Error al obtener todos los clientes de la base de datos",
-        });
+        res.status(500).json({ error: "Error al obtener los clientes." });
     }
 };
 
-// Obtener un solo cliente por su ID
+/**
+ * Obtiene la información detallada de un cliente específico por su ID.
+ */
 export const getCliente = async (req, res) => {
     try {
         const { id } = req.params;
-        const [rows] = await pool.query(
-            `
-                SELECT c.*, tc.nombre AS tipo_cliente_nombre 
-                FROM Cliente c
-                INNER JOIN Tipo_Cliente tc ON c.tipo_cliente_id = tc.id
-                WHERE c.id = ?
-            `,
-            [id],
-        );
+
+        const sql = `
+            SELECT c.*, tc.nombre AS tipo_cliente_nombre 
+            FROM Cliente c
+            INNER JOIN Tipo_Cliente tc ON c.tipo_cliente_id = tc.id
+            WHERE c.id = ?
+        `;
+
+        const [rows] = await pool.query(sql, [id]);
 
         if (rows.length === 0) {
-            return res.status(404).json({ message: "Cliente no encontrado" });
+            return res.status(404).json({ error: "Cliente no encontrado." });
         }
 
         res.json(rows[0]);
     } catch (error) {
         console.error(`Error en getCliente (ID: ${req.params.id}):`, error);
-        res.status(500).json({
-            error: "Error al obtener el cliente de la base de datos",
-        });
+        res.status(500).json({ error: "Error al obtener el cliente." });
     }
 };
 
-// Crear un nuevo cliente
+/**
+ * Registra un nuevo cliente en la base de datos.
+ * Nota: La validación previa de los datos es garantizada por el middleware `validarCliente`.
+ */
 export const createCliente = async (req, res) => {
-    const {
-        tipo_cliente_id,
-        nombre,
-        apellido,
-        DNI,
-        correo,
-        direccion,
-        telefono,
-    } = req.body;
+    const { tipo_cliente_id, nombre, apellido, DNI, correo, direccion, telefono } = req.body;
 
-    if (!nombre || !apellido || !DNI) {
-        return res
-            .status(400)
-            .json({ message: "Nombre, Apellido y DNI son obligatorios." });
-    }
     try {
-        const [result] = await pool.query(
-            `
-                INSERT INTO Cliente (tipo_cliente_id, nombre, apellido, DNI, correo, direccion, telefono) 
-                VALUES (?, ?, ?, ?, ?, ?, ?)
-                `,
-            [
-                tipo_cliente_id,
-                nombre,
-                apellido,
-                DNI,
-                correo,
-                direccion,
-                telefono,
-            ],
-        );
+        const sql = `
+            INSERT INTO Cliente (tipo_cliente_id, nombre, apellido, DNI, correo, direccion, telefono) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        `;
+
+        const [result] = await pool.query(sql, [
+            tipo_cliente_id,
+            nombre,
+            apellido,
+            DNI,
+            correo || null,
+            direccion || null,
+            telefono || null
+        ]);
 
         res.status(201).json({
             message: "Cliente registrado exitosamente",
@@ -90,39 +81,29 @@ export const createCliente = async (req, res) => {
             DNI,
             correo,
             direccion,
-            telefono,
+            telefono
         });
     } catch (error) {
         console.error("Error en createCliente:", error);
+        
+        // Manejo de restricción de Unicidad SQL (Error 1062 = Entrada Duplicada)
         if (error.errno === 1062) {
-            return res.status(400).json({
-                error: "El DNI o Correo ya se encuentra registrado.",
-            });
+            return res.status(400).json({ error: "El DNI o Correo ya se encuentra registrado." });
         }
 
-        res.status(500).json({
-            error: "Error al registrar un cliente en la base de datos",
-        });
+        res.status(500).json({ error: "Error interno al registrar el cliente." });
     }
 };
 
-// Actualizar datos de un cliente
+/**
+ * Actualiza la información de un cliente existente por su ID.
+ */
 export const updateCliente = async (req, res) => {
     try {
         const { id } = req.params;
-        const {
-            tipo_cliente_id,
-            nombre,
-            apellido,
-            DNI,
-            correo,
-            direccion,
-            telefono,
-        } = req.body;
+        const { tipo_cliente_id, nombre, apellido, DNI, correo, direccion, telefono } = req.body;
 
-        // CORREGIDO: Sintaxis con comas (,) y cláusula WHERE obligatoria al final
-        const [result] = await pool.query(
-            `
+        const sql = `
             UPDATE Cliente SET 
                 tipo_cliente_id = ?,
                 nombre = ?,
@@ -132,21 +113,21 @@ export const updateCliente = async (req, res) => {
                 direccion = ?,
                 telefono = ?
             WHERE id = ?
-            `,
-            [
-                tipo_cliente_id,
-                nombre,
-                apellido,
-                DNI,
-                correo,
-                direccion,
-                telefono,
-                id, // No olvides pasar el ID al final del arreglo
-            ],
-        );
+        `;
+
+        const [result] = await pool.query(sql, [
+            tipo_cliente_id,
+            nombre,
+            apellido,
+            DNI,
+            correo || null,
+            direccion || null,
+            telefono || null,
+            id
+        ]);
 
         if (result.affectedRows === 0) {
-            return res.status(404).json({ message: "Cliente no encontrado" });
+            return res.status(404).json({ error: "Cliente no encontrado." });
         }
 
         res.json({
@@ -158,48 +139,39 @@ export const updateCliente = async (req, res) => {
             DNI,
             correo,
             direccion,
-            telefono,
+            telefono
         });
     } catch (error) {
         console.error("Error en updateCliente:", error);
         
-        // Manejo de error si intentan actualizar a un DNI o Correo ya ocupado por otro cliente
         if (error.errno === 1062) {
-            return res.status(400).json({ error: "El DNI o Correo ya se encuentra registrado por otro cliente." });
+            return res.status(400).json({ error: "El DNI o Correo pertenece a otro cliente registrado." });
         }
 
-        res.status(500).json({
-            error: "Error al actualizar el cliente en la base de datos",
-        });
+        res.status(500).json({ error: "Error al actualizar el cliente." });
     }
 };
 
-// Eliminar un cliente aplicando Borrado Lógico
+/**
+ * Desactiva un cliente mediante borrado lógico (estado = false).
+ */
 export const deleteCliente = async (req, res) => {
     try {
         const { id } = req.params;
-        
-        // En lugar de DELETE, usamos UPDATE para desactivar el estado
-        const [result] = await pool.query(
-            `
-            UPDATE Cliente SET estado = false WHERE id = ? AND estado = true
-            `,
-            [id],
-        );
 
-        // Si no afectó filas, significa que el ID no existe o que ya estaba desactivado
+        const sql = `
+            UPDATE Cliente SET estado = false WHERE id = ? AND estado = true
+        `
+        
+        const [result] = await pool.query(sql, [id]);
+
         if (result.affectedRows === 0) {
-            return res
-                .status(404)
-                .json({ message: "El cliente no existe o ya se encuentra dado de baja" });
+            return res.status(404).json({ error: "El cliente no existe o ya está dado de baja." });
         }
 
-        res.json({ message: "Cliente dado de baja correctamente en el sistema" });
+        res.json({ message: "Cliente dado de baja correctamente." });
     } catch (error) {
         console.error("Error en deleteCliente:", error);
-        res.status(500).json({
-            error: "Error al intentar dar de baja al cliente en la base de datos",
-        });
+        res.status(500).json({ error: "Error al intentar dar de baja al cliente." });
     }
 };
-

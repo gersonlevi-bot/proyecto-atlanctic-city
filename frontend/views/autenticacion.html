@@ -92,7 +92,7 @@
                 <div class="grupo-formulario">
                     <div class="form-group--password">
                         <label for="contrasena-ingreso">Contraseña <span>*</span></label>
-                        <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+                        <p><a href="#" id="link-olvide-pass">¿Olvidaste tu contraseña?</a></p>
                     </div>
                     <div class="input-box">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -124,7 +124,7 @@
             <footer class="login--footer">
                 <p class="footer--text">
                     ¿No tienes cuenta?
-                    <a href="#">Registrarse</a>
+                    <a href="#" id="link-ir-a-registro">Registrarse</a>
                 </p>
 
                 <div class="footer-links">
@@ -135,7 +135,7 @@
             </footer>
         </div>
 
-        <div class="contenedor-registro oculto">
+        <div id="registro" class="contenedor-registro oculto">
             <header class="header--register">
                 <h3>Crear cuenta</h3>
                 <p>Completa el formulario para registrarte como operador.</p>
@@ -202,6 +202,22 @@
                         </svg>
                         Requerido
                     </small>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="rol-registro">Rol de usuario <span>*</span></label>
+                    <div class="input-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="tamano-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>
+                        <select id="rol-registro" required>
+                            <option value="" disabled selected>Selecciona un rol</option>
+                            <option value="1">Administrador</option>
+                            <option value="2">Empleado</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="grupo-formulario">
@@ -275,7 +291,7 @@
             <footer class="register--footer">
                 <p class="footer--text">
                     ¿Ya tienes cuenta?
-                    <a href="#">Iniciar sesión</a>
+                    <a href="#" id="link-ir-a-login">Iniciar sesión</a>
                 </p>
 
                 <div class="footer-links">
@@ -333,6 +349,8 @@
             </form>
         </div>
     </div>
+
+    <script type="module" src="../js/controllers/auth.controller.front.js"></script>
 </body>
 
 </html>

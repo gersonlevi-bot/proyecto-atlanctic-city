@@ -79,13 +79,10 @@
     flex-shrink: 0;
 }
 
-.item-nav > a { 
-    display: inline-flex; 
-    align-items: center; 
-    width: 100%; 
-    color: inherit; 
-    gap: 12px; 
-    text-decoration: none;
+.item-nav span {
+    color: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
 .item-nav:hover,
